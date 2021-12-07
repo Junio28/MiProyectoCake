@@ -10,7 +10,7 @@
     <hr>
     <h3><?= __('LISTADO DE CASA MUSICAL') ?></h3>
     <div class="table-responsive">
-        <table>
+        <table class="table table-hover" >
             <thead>
                 <tr>
                     <th><?= $this->Paginator->sort('ID') ?></th>
@@ -26,7 +26,7 @@
                     <td class="actions">
                         <?= $this->Html->link(__('VER MAS'), ['action' => 'view', $homeMusic->id],['class'=>'btn btn-info']) ?>
                         <?= $this->Html->link(__('EDITAR'), ['action' => 'edit', $homeMusic->id],[ 'class' => 'btn btn-warning']) ?>
-                        <?= $this->Form->postLink(__('ELIMINAR'), ['action' => 'delete', $homeMusic->id], ['confirm' => __('Estás seguro que deseas eleminar el registro # {0}?', $homeMusic->id),['class' => 'btn btn-danger']]) ?>
+                        <?= $this->Form->postLink(__('ELIMINAR'), ['action' => 'delete', $homeMusic->id], ['confirm' => __('Estás seguro que deseas eleminar el registro # {0}?', $homeMusic->id),'class' => 'btn btn-danger']) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
