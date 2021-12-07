@@ -6,17 +6,16 @@
  */
 ?>
 <div class="homeMusic index content">
-    <?= $this->Html->link(__('New Home Music'), ['action' => 'add'], ['class' => 'button float-right']) ?>
-    <h3><?= __('Home Music') ?></h3>
+    <?= $this->Html->link(__('Registrar Nuevo'), ['action' => 'add'], ['class' => 'btn btn-primary form-control']) ?>
+    <hr>
+    <h3><?= __('LISTADO DE CASA MUSICAL') ?></h3>
     <div class="table-responsive">
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('name') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th><?= $this->Paginator->sort('ID') ?></th>
+                    <th><?= $this->Paginator->sort('NOMBRE') ?></th>
+                    <th class="actions"><?= __('ACCIONES') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -24,12 +23,10 @@
                 <tr>
                     <td><?= $this->Number->format($homeMusic->id) ?></td>
                     <td><?= h($homeMusic->name) ?></td>
-                    <td><?= h($homeMusic->created) ?></td>
-                    <td><?= h($homeMusic->modified) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $homeMusic->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $homeMusic->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $homeMusic->id], ['confirm' => __('Are you sure you want to delete # {0}?', $homeMusic->id)]) ?>
+                        <?= $this->Html->link(__('VER MAS'), ['action' => 'view', $homeMusic->id],['class'=>'btn btn-info']) ?>
+                        <?= $this->Html->link(__('EDITAR'), ['action' => 'edit', $homeMusic->id],[ 'class' => 'btn btn-warning']) ?>
+                        <?= $this->Form->postLink(__('ELIMINAR'), ['action' => 'delete', $homeMusic->id], ['confirm' => __('Estás seguro que deseas eleminar el registro # {0}?', $homeMusic->id),['class' => 'btn btn-danger']]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
