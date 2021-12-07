@@ -47,7 +47,7 @@ if (!Configure::read('debug')) :
     );
 endif;
 
-$cakeDescription = 'CakePHP: the rapid development PHP framework';
+$cakeDescription = 'Casa Musical';
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -85,8 +85,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
     </ul>
   </div>
 </nav>
-
-
     
     <div class="container">
     <h2>Bienvenidos a CakePHP <?= Configure::version() ?> </h2>
@@ -95,5 +93,6 @@ $cakeDescription = 'CakePHP: the rapid development PHP framework';
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae maxime non impedit, ut voluptatum iusto placeat hic, voluptatem magni vel autem ullam quidem quis. Perferendis deleniti error consequuntur provident maxime!</p>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil voluptas accusamus eaque fugit quas ut dolore aut modi unde ipsa voluptatibus numquam corporis debitis esse excepturi, quod soluta, odit cum?</p>
     </div>
+    <?= $this->Html->script(['jquery','jquery.min','bootstrap.min']) ?>
 </body>
 </html>
