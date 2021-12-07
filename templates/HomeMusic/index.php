@@ -34,13 +34,31 @@
         </table>
     </div>
     <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+    <?php
+                $paginator = $this->Paginator->setTemplates([
+                    'number' => '<li class="page-item"> <a class="page-link" href="{{url}}">{{text}}</a></li>',
+                    'current' => '<li class="page-item active"> <a class="page-link" href="{{url}}">{{text}}</a></li>',
+                    'first' => '<li class="page-item"> <a class="page-link" href="{{url}}">&laquo;</a></li>',
+                    'last' => '<li class="page-item"> <a class="page-link" href="{{url}}">&raquo;</a></li>',
+                    'prevActive' => '<li class="page-item"> <a class="page-link" href="{{url}}">&lt;</a></li>',
+                    'nextActive' => '<li class="page-item"> <a class="page-link" href="{{url}}">&gt;</a></li>'
+
+                ]);
+            ?>
+    <ul class="pagination">
+            <?php 
+            echo $paginator->first();
+            if($paginator->hasPrev()){
+                echo $paginator->prev();
+            }
+            echo $paginator->numbers();
+            if($paginator->hasNext()){
+                echo $paginator->next();
+            }
+            ?>
+            <?= $this->Paginator->last() ?>
         </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+
+        <p><?= $this->Paginator->counter(__('Página {{page}} del {{pages}}, mostrando {{current}} registro(s) de {{count}} en total')) ?></p>
     </div>
 </div>
