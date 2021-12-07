@@ -43,6 +43,13 @@ return static function (RouteBuilder $routes) {
      * `:action` markers.
      */
     $routes->setRouteClass(DashedRoute::class);
+    $routes->scope('/casa-musical', function (RouteBuilder $builder) { 
+        $builder->connect('/', ['controller' => 'HomeMusic', 'action' => 'index']); 
+        $builder->connect('/add/', ['controller' => 'HomeMusic', 'action' => 'add']); 
+        $builder->connect('/view/*', ['controller' => 'HomeMusic', 'action' => 'view']); 
+        $builder->connect('/edit/*', ['controller' => 'HomeMusic', 'action' => 'edit']); 
+        $builder->connect('/delete/*', ['controller' => 'HomeMusic', 'action' => 'delete']); 
+    });
 
     $routes->scope('/', function (RouteBuilder $builder) {
         /*
