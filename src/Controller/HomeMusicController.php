@@ -56,11 +56,11 @@ class HomeMusicController extends AppController
         if ($this->request->is('post')) {
             $homeMusic = $this->HomeMusic->patchEntity($homeMusic, $this->request->getData());
             if ($this->HomeMusic->save($homeMusic)) {
-                $this->Flash->success(__('The home music has been saved.'));
+                $this->Flash->success(__('El registro se ha guardado exitosamente!!.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The home music could not be saved. Please, try again.'));
+            $this->Flash->error(__('El registro no ha sido guardado, por favor intente de nuevo mas tarde.'));
         }
         $this->set(compact('homeMusic'));
     }
@@ -80,11 +80,11 @@ class HomeMusicController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $homeMusic = $this->HomeMusic->patchEntity($homeMusic, $this->request->getData());
             if ($this->HomeMusic->save($homeMusic)) {
-                $this->Flash->success(__('The home music has been saved.'));
+                $this->Flash->success(__('El registro se ha actualizado exitosamente!!.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The home music could not be saved. Please, try again.'));
+            $this->Flash->error(__('El registro no ha sido actualizado, por favor intente de nuevo mas tarde.'));
         }
         $this->set(compact('homeMusic'));
     }
@@ -101,9 +101,9 @@ class HomeMusicController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $homeMusic = $this->HomeMusic->get($id);
         if ($this->HomeMusic->delete($homeMusic)) {
-            $this->Flash->success(__('The home music has been deleted.'));
+            $this->Flash->success(__('El registro se ha borrado satisfactoriamente!!.'));
         } else {
-            $this->Flash->error(__('The home music could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El registro no se ha eliminado, por favor intente de nuevo mas tarde.'));
         }
 
         return $this->redirect(['action' => 'index']);
