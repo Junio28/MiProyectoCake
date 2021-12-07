@@ -8,11 +8,10 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Form->postLink(
-                __('Delete'),
+                __('Elminar'),
                 ['action' => 'delete', $homeMusic->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $homeMusic->id), 'class' => 'side-nav-item']
+                ['confirm' => __('Estás seguro que deseas eliminar el registro # {0}?', $homeMusic->id), 'class' => 'side-nav-item']
             ) ?>
             <?= $this->Html->link(__('List Home Music'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
@@ -21,12 +20,14 @@
         <div class="homeMusic form content">
             <?= $this->Form->create($homeMusic) ?>
             <fieldset>
-                <legend><?= __('Edit Home Music') ?></legend>
+                <legend><?= __('Editar Registro de ') ?><?= h($homeMusic->name) ?></legend>
                 <?php
-                    echo $this->Form->control('name');
+                    echo $this->Form->label('Nombre');
+                    echo $this->Form->input('name', ['class' => 'form-control', 'placeholder'=> 'Ingrese la disquera']);
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <hr>
+            <?= $this->Form->button(__('Actualizar'), ['class' => 'btn btn-warning form-control']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
