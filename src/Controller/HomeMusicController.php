@@ -18,6 +18,11 @@ class HomeMusicController extends AppController
      */
     public function index()
     {
+
+        $this->paginate = [
+            'limit' => '2',
+        ];
+
         $homeMusic = $this->paginate($this->HomeMusic);
 
         $this->set(compact('homeMusic'));
@@ -32,10 +37,6 @@ class HomeMusicController extends AppController
      */
     public function view($id = null)
     {
-
-        $this->paginate = [
-            'limit' => '2',
-        ];
 
         $homeMusic = $this->HomeMusic->get($id, [
             'contain' => [],
