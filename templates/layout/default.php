@@ -39,6 +39,7 @@ $cakeDescription = 'Casa Musical';
 <?php include 'nav.php';?>
     <main class="main">
         <div class="container">
+            <br><br>
             <?= $this->Flash->render() ?>
             <?= $this->fetch('content') ?>
         </div>

@@ -1,4 +1,5 @@
 <?php
+     $this->assign('title', 'Formulario de Casa Musical'); 
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\HomeMusic $homeMusic
