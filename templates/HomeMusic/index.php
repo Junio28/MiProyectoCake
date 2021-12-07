@@ -1,4 +1,5 @@
 <?php
+        $this->assign('title', 'Listado de Casa Musical'); 
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\HomeMusic[]|\Cake\Collection\CollectionInterface $homeMusic

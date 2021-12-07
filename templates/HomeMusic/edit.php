@@ -1,4 +1,5 @@
 <?php
+            $this->assign('title', 'Editar registro de Casa Musical'); 
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\HomeMusic $homeMusic
