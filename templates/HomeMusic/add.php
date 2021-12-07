@@ -6,22 +6,18 @@
  */
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Home Music'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
     <div class="column-responsive column-80">
         <div class="homeMusic form content">
             <?= $this->Form->create($homeMusic) ?>
             <fieldset>
-                <legend><?= __('Add Home Music') ?></legend>
+                <legend><h1><?= __('Formulario de Casa Musical') ?></h1></legend>
                 <?php
-                    echo $this->Form->control('name');
+                    echo $this->Form->label('Nombre');
+                    echo $this->Form->input('name', ['class' => 'form-control', 'placeholder'=>'Ingrese la Disquera']);
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <hr>
+            <?= $this->Form->button(__('Agregar'), ['class' => 'btn btn-primary form-control']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
