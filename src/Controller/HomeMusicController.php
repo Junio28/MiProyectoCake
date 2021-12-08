@@ -39,7 +39,7 @@ class HomeMusicController extends AppController
     {
 
         $homeMusic = $this->HomeMusic->get($id, [
-            'contain' => [],
+            'contain' => ['Album'],
         ]);
 
         $this->set(compact('homeMusic'));
