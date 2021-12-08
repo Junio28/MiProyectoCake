@@ -15,6 +15,21 @@
       <li class="nav-item">
         <a class="nav-link" href="<?= $this->Url->build('/albumes') ?>">Albumes</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/interpretes') ?>">Interpretes</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/generos_musicales') ?>">Generos Musicales</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/canciones') ?>">canciones</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/medios') ?>">Medios</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/autores') ?>">Autores</a>
+      </li>
     </ul>
   </div>
 </nav>
