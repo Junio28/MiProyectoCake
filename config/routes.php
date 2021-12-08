@@ -59,6 +59,46 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/delete/*', ['controller' => 'Album', 'action' => 'delete']); 
     });
 
+    $routes->scope('/interpretes', function (RouteBuilder $builder) { 
+        $builder->connect('/', ['controller' => 'Singer', 'action' => 'index']); 
+        $builder->connect('/add/', ['controller' => 'Singer', 'action' => 'add']); 
+        $builder->connect('/view/*', ['controller' => 'Singer', 'action' => 'view']); 
+        $builder->connect('/edit/*', ['controller' => 'Singer', 'action' => 'edit']); 
+        $builder->connect('/delete/*', ['controller' => 'Singer', 'action' => 'delete']); 
+    });
+
+    $routes->scope('/generos_musicales', function (RouteBuilder $builder) { 
+        $builder->connect('/', ['controller' => 'Genre', 'action' => 'index']); 
+        $builder->connect('/add/', ['controller' => 'Genre', 'action' => 'add']); 
+        $builder->connect('/view/*', ['controller' => 'Genre', 'action' => 'view']); 
+        $builder->connect('/edit/*', ['controller' => 'Genre', 'action' => 'edit']); 
+        $builder->connect('/delete/*', ['controller' => 'Genre', 'action' => 'delete']); 
+    });
+
+    $routes->scope('/canciones', function (RouteBuilder $builder) { 
+        $builder->connect('/', ['controller' => 'Song', 'action' => 'index']); 
+        $builder->connect('/add/', ['controller' => 'Song', 'action' => 'add']); 
+        $builder->connect('/view/*', ['controller' => 'Song', 'action' => 'view']); 
+        $builder->connect('/edit/*', ['controller' => 'Song', 'action' => 'edit']); 
+        $builder->connect('/delete/*', ['controller' => 'Song', 'action' => 'delete']); 
+    });
+
+    $routes->scope('/medios', function (RouteBuilder $builder) { 
+        $builder->connect('/', ['controller' => 'Media', 'action' => 'index']); 
+        $builder->connect('/add/', ['controller' => 'Media', 'action' => 'add']); 
+        $builder->connect('/view/*', ['controller' => 'Media', 'action' => 'view']); 
+        $builder->connect('/edit/*', ['controller' => 'Media', 'action' => 'edit']); 
+        $builder->connect('/delete/*', ['controller' => 'Media', 'action' => 'delete']); 
+    });
+
+    $routes->scope('/autores', function (RouteBuilder $builder) { 
+        $builder->connect('/', ['controller' => 'Author', 'action' => 'index']); 
+        $builder->connect('/add/', ['controller' => 'Author', 'action' => 'add']); 
+        $builder->connect('/view/*', ['controller' => 'Author', 'action' => 'view']); 
+        $builder->connect('/edit/*', ['controller' => 'Author', 'action' => 'edit']); 
+        $builder->connect('/delete/*', ['controller' => 'Author', 'action' => 'delete']); 
+    });
+
     $routes->scope('/', function (RouteBuilder $builder) {
         /*
          * Here, we are connecting '/' (base path) to a controller called 'Pages',
