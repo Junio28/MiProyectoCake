@@ -45,9 +45,9 @@
                 <div class="table-responsive">
                     <table  class="table table-hover">
                         <tr>
-                            <th><?= __('Id') ?></th>
-                            <th><?= __('name') ?></th>
-                            <th><?= __('release_date') ?></th>
+                            <th><?= __('ID') ?></th>
+                            <th><?= __('NOMBRE') ?></th>
+                            <th><?= __('FECHA DE LANZAMIENTO') ?></th>
                            
                             <th class="actions"><?= __('ACCIONES') ?></th>
                         </tr>
