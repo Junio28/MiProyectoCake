@@ -28,5 +28,6 @@ class HomeMusic extends Entity
         'name' => true,
         'created' => true,
         'modified' => true,
+        'album' => true,
     ];
 }

@@ -44,6 +44,14 @@ class HomeMusicTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        protected $_accessible = [
+            'name' => true,
+            'created' => true,
+            'modified' => true,
+            'album' => true,
+        ];
+    
     }
 
     /**
