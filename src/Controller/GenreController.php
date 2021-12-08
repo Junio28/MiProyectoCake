@@ -18,6 +18,11 @@ class GenreController extends AppController
      */
     public function index()
     {
+
+        $this->paginate = [
+            'limit' => '2',
+        ];
+
         $genre = $this->paginate($this->Genre);
 
         $this->set(compact('genre'));

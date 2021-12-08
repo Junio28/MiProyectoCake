@@ -5,22 +5,17 @@
  */
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Genre'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
     <div class="column-responsive column-80">
         <div class="genre form content">
             <?= $this->Form->create($genre) ?>
             <fieldset>
-                <legend><?= __('Add Genre') ?></legend>
+                <legend><?= __('Formulario de Generos Musicales') ?></legend>
                 <?php
-                    echo $this->Form->control('name');
+                    echo $this->Form->control('name', ['label'=>'Nombre', 'class'=>'form-control', 'placeholder'=>'Ingrese el nombre de Genero Musical']);
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <hr>
+            <?= $this->Form->button(__('Agregar'), ['class' => 'btn btn-primary form-control']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
