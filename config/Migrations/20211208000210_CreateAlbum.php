@@ -29,6 +29,9 @@ class CreateAlbum extends AbstractMigration
             'limit' => 11,
             'null' => false,
         ]);
+
+        $table->addForeignKey('home_music_id', 'home_music', 'id', array('delete'=> 'CASCADE', 'update'=> 'NO_ACTION'));
+
         $table->addColumn('created', 'datetime', [
             'default' => null,
             'null' => false,
