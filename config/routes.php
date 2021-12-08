@@ -51,6 +51,14 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/delete/*', ['controller' => 'HomeMusic', 'action' => 'delete']); 
     });
 
+    $routes->scope('/albumes', function (RouteBuilder $builder) { 
+        $builder->connect('/', ['controller' => 'Album', 'action' => 'index']); 
+        $builder->connect('/add/', ['controller' => 'Album', 'action' => 'add']); 
+        $builder->connect('/view/*', ['controller' => 'Album', 'action' => 'view']); 
+        $builder->connect('/edit/*', ['controller' => 'Album', 'action' => 'edit']); 
+        $builder->connect('/delete/*', ['controller' => 'Album', 'action' => 'delete']); 
+    });
+
     $routes->scope('/', function (RouteBuilder $builder) {
         /*
          * Here, we are connecting '/' (base path) to a controller called 'Pages',

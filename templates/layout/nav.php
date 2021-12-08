@@ -12,6 +12,9 @@
       <li class="nav-item">
         <a class="nav-link" href="<?= $this->Url->build('/casa-musical') ?>">Casa Musical</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="<?= $this->Url->build('/albumes') ?>">Albumes</a>
+      </li>
     </ul>
   </div>
 </nav>

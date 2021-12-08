@@ -5,19 +5,18 @@
  */
 ?>
 <div class="album index content">
-    <?= $this->Html->link(__('New Album'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?= $this->Html->link(__('Registrar Nuevo'), ['action' => 'add'], ['class' => 'btn btn-primary form-control']) ?>
+    <hr>
     <h3><?= __('Album') ?></h3>
     <div class="table-responsive">
-        <table>
+        <table class="table table-hover">
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
-                    <th><?= $this->Paginator->sort('name') ?></th>
-                    <th><?= $this->Paginator->sort('release_date') ?></th>
-                    <th><?= $this->Paginator->sort('home_music_id') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th><?= $this->Paginator->sort('ID') ?></th>
+                    <th><?= $this->Paginator->sort('NOMBRE') ?></th>
+                    <th><?= $this->Paginator->sort('FECHA DE LANZAMIENTO') ?></th>
+                    <th><?= $this->Paginator->sort('CASA MUSICAL') ?></th>
+                    <th class="actions"><?= __('ACCIONES') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -27,12 +26,10 @@
                     <td><?= h($album->name) ?></td>
                     <td><?= h($album->release_date) ?></td>
                     <td><?= $album->has('home_music') ? $this->Html->link($album->home_music->name, ['controller' => 'HomeMusic', 'action' => 'view', $album->home_music->id]) : '' ?></td>
-                    <td><?= h($album->created) ?></td>
-                    <td><?= h($album->modified) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $album->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $album->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $album->id], ['confirm' => __('Are you sure you want to delete # {0}?', $album->id)]) ?>
+                        <?= $this->Html->link(__('VER MAS'), ['action' => 'view', $album->id], ['class' => 'btn btn-info']) ?>
+                        <?= $this->Html->link(__('EDITAR'), ['action' => 'edit', $album->id], ['class' => 'btn btn-warning']) ?>
+                        <?= $this->Form->postLink(__('ELIMINAR'), ['action' => 'delete', $album->id], ['confirm' => __('Estás seguro que deseas eliminar el registro # {0}?', $album->id), 'class' => 'btn btn-danger']) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -40,13 +37,31 @@
         </table>
     </div>
     <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+    <?php
+                $paginator = $this->Paginator->setTemplates([
+                    'number' => '<li class="page-item"> <a class="page-link" href="{{url}}">{{text}}</a></li>',
+                    'current' => '<li class="page-item active"> <a class="page-link" href="{{url}}">{{text}}</a></li>',
+                    'first' => '<li class="page-item"> <a class="page-link" href="{{url}}">&laquo;</a></li>',
+                    'last' => '<li class="page-item"> <a class="page-link" href="{{url}}">&raquo;</a></li>',
+                    'prevActive' => '<li class="page-item"> <a class="page-link" href="{{url}}">&lt;</a></li>',
+                    'nextActive' => '<li class="page-item"> <a class="page-link" href="{{url}}">&gt;</a></li>'
+
+                ]);
+            ?>
+    <ul class="pagination">
+            <?php 
+            echo $paginator->first();
+            if($paginator->hasPrev()){
+                echo $paginator->prev();
+            }
+            echo $paginator->numbers();
+            if($paginator->hasNext()){
+                echo $paginator->next();
+            }
+            ?>
+            <?= $this->Paginator->last() ?>
         </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+
+        <p><?= $this->Paginator->counter(__('Página {{page}} del {{pages}}, mostrando {{current}} registro(s) de {{count}} en total')) ?></p>
     </div>
 </div>

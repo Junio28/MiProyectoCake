@@ -18,7 +18,9 @@ class AlbumController extends AppController
      */
     public function index()
     {
+        
         $this->paginate = [
+            'limit' => '2',
             'contain' => ['HomeMusic'],
         ];
         $album = $this->paginate($this->Album);
@@ -53,11 +55,11 @@ class AlbumController extends AppController
         if ($this->request->is('post')) {
             $album = $this->Album->patchEntity($album, $this->request->getData());
             if ($this->Album->save($album)) {
-                $this->Flash->success(__('The album has been saved.'));
+                $this->Flash->success(__('El registro se ha guardado exitosamente!!..'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The album could not be saved. Please, try again.'));
+            $this->Flash->error(__('El registro no ha sido guardado, por favor intente de nuevo mas tarde.'));
         }
         $homeMusic = $this->Album->HomeMusic->find('list', ['limit' => 200])->all();
         $this->set(compact('album', 'homeMusic'));
@@ -78,11 +80,11 @@ class AlbumController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $album = $this->Album->patchEntity($album, $this->request->getData());
             if ($this->Album->save($album)) {
-                $this->Flash->success(__('The album has been saved.'));
+                $this->Flash->success(__('El registro se ha actualizado exitosamente!!.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The album could not be saved. Please, try again.'));
+            $this->Flash->error(__('El registro no ha sido actualizado, por favor intente de nuevo mas tarde.'));
         }
         $homeMusic = $this->Album->HomeMusic->find('list', ['limit' => 200])->all();
         $this->set(compact('album', 'homeMusic'));
@@ -100,9 +102,9 @@ class AlbumController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $album = $this->Album->get($id);
         if ($this->Album->delete($album)) {
-            $this->Flash->success(__('The album has been deleted.'));
+            $this->Flash->success(__('El registro se ha borrado satisfactoriamente!!.'));
         } else {
-            $this->Flash->error(__('The album could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El registro no se ha eliminado, por favor intente de nuevo mas tarde.'));
         }
 
         return $this->redirect(['action' => 'index']);

@@ -1,4 +1,5 @@
 <?php
+        $this->assign('title', 'Formulario de Albumes'); 
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Album $album
@@ -6,24 +7,19 @@
  */
 ?>
 <div class="row">
-    <aside class="column">
-        <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('List Album'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-        </div>
-    </aside>
     <div class="column-responsive column-80">
         <div class="album form content">
             <?= $this->Form->create($album) ?>
             <fieldset>
-                <legend><?= __('Add Album') ?></legend>
+                <legend><?= __('Formulario de Albumes') ?></legend>
                 <?php
-                    echo $this->Form->control('name');
-                    echo $this->Form->control('release_date');
-                    echo $this->Form->control('home_music_id', ['options' => $homeMusic]);
+                    echo $this->Form->control('name', ['label'=>'Nombre','class'=>'form-control', 'placeholder'=>'Ingrese cualquier Album']);
+                    echo $this->Form->control('release_date', ['label'=>'Fecha de Lanzamiento','class'=>'form-control']);
+                    echo $this->Form->control('home_music_id', ['label'=>'Seleccion Casa Musical','options' => $homeMusic,'class'=>'form-control']);
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <hr>
+            <?= $this->Form->button(__('Agregar'),['class'=>'btn btn-primary form-control']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

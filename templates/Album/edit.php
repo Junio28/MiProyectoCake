@@ -8,27 +8,26 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Form->postLink(
-                __('Delete'),
+                __('Eliminar'),
                 ['action' => 'delete', $album->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $album->id), 'class' => 'side-nav-item']
+                ['confirm' => __('Estas seguro que deseas elminar el registro # {0}?', $album->id), 'class' => 'btn btn-danger']
             ) ?>
-            <?= $this->Html->link(__('List Album'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
         <div class="album form content">
             <?= $this->Form->create($album) ?>
             <fieldset>
-                <legend><?= __('Edit Album') ?></legend>
+                <legend><?= __('Editar Album ') ?><?= h($album->name) ?></legend>
                 <?php
-                    echo $this->Form->control('name');
-                    echo $this->Form->control('release_date');
-                    echo $this->Form->control('home_music_id', ['options' => $homeMusic]);
+                    echo $this->Form->control('name', ['label'=>'Nombre','class'=>'form-control', 'placeholder'=>'Ingrese cualquier Album']);
+                    echo $this->Form->control('release_date', ['label'=>'Fecha de Lanzamiento','class'=>'form-control']);
+                    echo $this->Form->control('home_music_id', ['options' => $homeMusic, 'label'=>'Seleccion Casa Musical', 'class'=>'form-control']);
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <hr>
+            <?= $this->Form->button(__('Actualizar'),['class'=>'btn btn-warning form-control']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>

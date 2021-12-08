@@ -7,23 +7,21 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
-            <?= $this->Html->link(__('Edit Album'), ['action' => 'edit', $album->id], ['class' => 'side-nav-item']) ?>
-            <?= $this->Form->postLink(__('Delete Album'), ['action' => 'delete', $album->id], ['confirm' => __('Are you sure you want to delete # {0}?', $album->id), 'class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('List Album'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
-            <?= $this->Html->link(__('New Album'), ['action' => 'add'], ['class' => 'side-nav-item']) ?>
+            <?= $this->Html->link(__('Editar'), ['action' => 'edit', $album->id], ['class' => 'btn btn-warning']) ?>
+            <?= $this->Form->postLink(__('Eliminar'), ['action' => 'delete', $album->id], ['confirm' => __('Estás segura que deseas eliminar el registro # {0}?', $album->id), 'class' => 'btn btn-danger']) ?>
+            <?= $this->Html->link(__('Registrar Nuevo'), ['action' => 'add'], ['class' => 'btn btn-primary']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
         <div class="album view content">
-            <h3><?= h($album->name) ?></h3>
-            <table>
+            <h3>Datos de <?= h($album->name) ?></h3>
+            <table class="table table-hover">
                 <tr>
-                    <th><?= __('Name') ?></th>
+                    <th><?= __('Nombre de album') ?></th>
                     <td><?= h($album->name) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Home Music') ?></th>
+                    <th><?= __('Casa Musical') ?></th>
                     <td><?= $album->has('home_music') ? $this->Html->link($album->home_music->name, ['controller' => 'HomeMusic', 'action' => 'view', $album->home_music->id]) : '' ?></td>
                 </tr>
                 <tr>
@@ -31,16 +29,8 @@
                     <td><?= $this->Number->format($album->id) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Release Date') ?></th>
+                    <th><?= __('Fecha de Lanzamiento') ?></th>
                     <td><?= h($album->release_date) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Created') ?></th>
-                    <td><?= h($album->created) ?></td>
-                </tr>
-                <tr>
-                    <th><?= __('Modified') ?></th>
-                    <td><?= h($album->modified) ?></td>
                 </tr>
             </table>
         </div>
