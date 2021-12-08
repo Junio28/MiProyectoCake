@@ -38,3 +38,34 @@
         </div>
     </div>
 </div>
+
+<div class="related">
+                <h4><?= __('Albumes relacionados') ?></h4>
+                <?php if (!empty($homeMusic->album)) : ?>
+                <div class="table-responsive">
+                    <table  class="table table-hover">
+                        <tr>
+                            <th><?= __('Id') ?></th>
+                            <th><?= __('name') ?></th>
+                            <th><?= __('release_date') ?></th>
+                            <th><?= __('home_music_id') ?></th>
+                           
+                            <th class="actions"><?= __('Actions') ?></th>
+                        </tr>
+                        <?php foreach ($homeMusic->album as $album) : ?>
+                        <tr>
+                            <td><?= h($album->id) ?></td>
+                            <td><?= h($album->name) ?></td>
+                            <td><?= h($album->release_date) ?></td>
+                            <td><?= h($album->home_music_id) ?></td>
+                            
+                            <td class="actions">
+                               
+                            </td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+                <?php endif; ?>
+            </div>
+

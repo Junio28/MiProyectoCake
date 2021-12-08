@@ -45,13 +45,10 @@ class HomeMusicTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        protected $_accessible = [
-            'name' => true,
-            'created' => true,
-            'modified' => true,
-            'album' => true,
-        ];
-    
+        $this->hasMany('Album', [
+            'foreignKey' => 'home_music_id',
+        ]);
+     
     }
 
     /**
