@@ -22,7 +22,7 @@
         <a class="nav-link" href="<?= $this->Url->build('/generos_musicales') ?>">Generos Musicales</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="<?= $this->Url->build('/canciones') ?>">canciones</a>
+        <a class="nav-link" href="<?= $this->Url->build('/canciones') ?>">Canciones</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="<?= $this->Url->build('/medios') ?>">Medios</a>

@@ -18,6 +18,11 @@ class SingerController extends AppController
      */
     public function index()
     {
+
+        $this->paginate = [
+            'limit' => '2',
+        ];
+
         $singer = $this->paginate($this->Singer);
 
         $this->set(compact('singer'));
@@ -50,11 +55,11 @@ class SingerController extends AppController
         if ($this->request->is('post')) {
             $singer = $this->Singer->patchEntity($singer, $this->request->getData());
             if ($this->Singer->save($singer)) {
-                $this->Flash->success(__('The singer has been saved.'));
+                $this->Flash->success(__('El registra ha sido creado con exito!!.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The singer could not be saved. Please, try again.'));
+            $this->Flash->error(__('El registro no ha sido creado, por favor intente de nuevo más tarde.'));
         }
         $this->set(compact('singer'));
     }
@@ -74,11 +79,11 @@ class SingerController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $singer = $this->Singer->patchEntity($singer, $this->request->getData());
             if ($this->Singer->save($singer)) {
-                $this->Flash->success(__('The singer has been saved.'));
+                $this->Flash->success(__('El registra ha sido actualizado con exito!!.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The singer could not be saved. Please, try again.'));
+            $this->Flash->error(__('El registro no ha sido actualizado, por favor intente de nuevo más tarde.'));
         }
         $this->set(compact('singer'));
     }
@@ -95,9 +100,9 @@ class SingerController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $singer = $this->Singer->get($id);
         if ($this->Singer->delete($singer)) {
-            $this->Flash->success(__('The singer has been deleted.'));
+            $this->Flash->success(__('El registra ha sido borrado satisfactoriamente!!'));
         } else {
-            $this->Flash->error(__('The singer could not be deleted. Please, try again.'));
+            $this->Flash->error(__('El registro no ha sido borrado, por favor intente de nuevo más tarde.'));
         }
 
         return $this->redirect(['action' => 'index']);

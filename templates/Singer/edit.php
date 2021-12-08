@@ -7,26 +7,25 @@
 <div class="row">
     <aside class="column">
         <div class="side-nav">
-            <h4 class="heading"><?= __('Actions') ?></h4>
             <?= $this->Form->postLink(
-                __('Delete'),
+                __('Eliminar'),
                 ['action' => 'delete', $singer->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $singer->id), 'class' => 'side-nav-item']
+                ['confirm' => __('Estás seguro que deseas eliminar el registro # {0}?', $singer->id), 'class' => 'btn btn-danger']
             ) ?>
-            <?= $this->Html->link(__('List Singer'), ['action' => 'index'], ['class' => 'side-nav-item']) ?>
         </div>
     </aside>
     <div class="column-responsive column-80">
         <div class="singer form content">
             <?= $this->Form->create($singer) ?>
             <fieldset>
-                <legend><?= __('Edit Singer') ?></legend>
+                <legend><?= __('Editando el registro de ') ?> <?= h($singer->name) ?></legend>
                 <?php
-                    echo $this->Form->control('name');
-                    echo $this->Form->control('nationality');
+                    echo $this->Form->control('name',['class'=>'form-control', 'label'=>'Nombre','placeholder'=>'Ingrese el nombre del artista']);
+                    echo $this->Form->control('nationality',['class'=>'form-control', 'label'=>'Nacionalidad','placeholder'=>'Ingrese la nacionalidad del artista']);
                 ?>
             </fieldset>
-            <?= $this->Form->button(__('Submit')) ?>
+            <hr>
+            <?= $this->Form->button(__('Actualizar'), ['class'=> 'btn btn-warning form-control']) ?>
             <?= $this->Form->end() ?>
         </div>
     </div>
