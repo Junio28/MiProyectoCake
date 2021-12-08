@@ -48,16 +48,14 @@
                             <th><?= __('Id') ?></th>
                             <th><?= __('name') ?></th>
                             <th><?= __('release_date') ?></th>
-                            <th><?= __('home_music_id') ?></th>
                            
-                            <th class="actions"><?= __('Actions') ?></th>
+                            <th class="actions"><?= __('ACCIONES') ?></th>
                         </tr>
                         <?php foreach ($homeMusic->album as $album) : ?>
                         <tr>
                             <td><?= h($album->id) ?></td>
                             <td><?= h($album->name) ?></td>
                             <td><?= h($album->release_date) ?></td>
-                            <td><?= h($album->home_music_id) ?></td>
                             
                             <td class="actions">
                                
